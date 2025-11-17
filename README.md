@@ -334,3 +334,60 @@ Actors:
    - BR-02: Reminders must be sent within a configurable timeframe (e.g., 24 hours before).
    - BR-03: All notifications must be logged for audit purposes.
    
+
+### Use Case 7: Manage Appointments (Admin)
+1. Actors: Clinic Staff / Administrator (primary actor)
+2. Brief Description: Admins can view, edit, cancel, or reassign appointments. This use case ensures that clinic staff can intervene when necessary, especially in emergencies, doctor absences, or patient changes.
+   
+3. Preconditions:
+   - Admin user must be authenticated.
+   - Appointments must exist in the system.
+   - Admin has proper permissions.
+     
+4. Postconditions:
+   - Appointment records are updated to reflect admin changes.
+   - Patients and doctors receive updated notifications.
+   - All changes are logged.
+     
+5. Main Flow
+   - Admin accesses the appointment management panel.
+   - The system displays the list of appointments.
+   - Admin selects an appointment.
+   - Admin performs an action:
+     - Edit appointment details
+     - Cancel appointment
+     - Reassign doctor
+     - Change appointment time
+   - The system validates the changes.
+   - The system updates the appointment.
+   - Notifications are sent to affected users.
+   - The changes are logged.
+   - The use case ends successfully.
+     
+6. Alternative Flows
+   
+   A1 – Invalid Update
+   
+     1. Admin attempts to assign a doctor who is unavailable.
+     2. The system rejects the change.
+     3. The system informs the admin of the issue.
+     4. Admin must correct the change.
+   
+   A2 – Appointment Cannot Be Found
+
+     1. The appointment has been deleted or corrupted.
+     2. The system displays an error.
+     3. Admin returns to the appointment list.
+  
+   A3 – System Failure
+
+     1. A system or database failure prevents the update.
+     2. The system logs the error.
+     3. Admin is asked to retry later.
+  
+7. Business Rules
+   
+   - BR-01: Only authorized staff may modify appointments.
+   - BR-02: All manual changes must trigger new notifications.
+   - BR-03: All modifications must be recorded for auditing.
+   

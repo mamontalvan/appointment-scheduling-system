@@ -32,3 +32,16 @@ Actors:
 - Administrator
  
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/13e36918-64df-47f0-b5bd-a8c1a8896f7f" />
+
+## Use Cases
+
+### Use Case 1: Request Appointment
+1. Actors: Patient (primary actor)
+2. Brief Description: The patient initiates a request to schedule an appointment without selecting a specific doctor. The system registers the appointment request and will later proceed with doctor assignment and time reservation.
+3. Preconditions:
+   - The patient must be registered and authenticated.
+   - The system must have available appointment slots.
+   - At least one doctor must have a defined availability schedule.
+5. Postconditions:
+6. 
+

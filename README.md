@@ -61,30 +61,32 @@ Actors:
 7. Alternative Flows
    
    A1 – Slot No Longer Available
+   
      1. The system detects that the selected slot has been taken.
      2. The system displays a message: “This time slot is no longer available.”
      3. The system refreshes the list of available slots.
      4. The patient may select a new slot.
      5. The flow returns to Step 1 of the main flow.
-
-  A2 – No Doctor Available for the Selected Slot
-  
-    1. The system cannot find an available doctor for the chosen slot.
-    2. The system displays a message: “No doctors are available for this slot.”
-    3. The system refreshes availability or suggests alternative times.
-    4. The patient may choose a new slot.
-
-  A3 – System Failure During Scheduling
-  
-    1. A technical issue prevents the system from confirming the appointment.
-    2. The system displays an error message and logs the incident.
-    3. The system may retry the operation automatically (depending on architecture).
-    4. If retry fails, the patient is prompted to try again later.
-  
-8. Business Rules
    
-   BR-01: The doctor assignment must be automatic based on availability and workload.
-   BR-02: Appointment reservations must be atomic — either fully confirmed or not created.
-   BR-03: Notifications must be sent upon successful reservation.
-   BR-04: The system must maintain low-latency behavior even under high load.
-   BR-05: The system must prevent race conditions when two users select the same slot.
+   A2 – No Doctor Available for the Selected Slot
+
+     1. The system cannot find an available doctor for the chosen slot.
+     2. The system displays a message: “No doctors are available for this slot.”
+     3. The system refreshes availability or suggests alternative times.
+     4. The patient may choose a new slot.
+        
+   A3 – System Failure During Scheduling
+  
+     1. A technical issue prevents the system from confirming the appointment.
+     2. The system displays an error message and logs the incident.
+     3. The system may retry the operation automatically (depending on architecture).
+     4. If retry fails, the patient is prompted to try again later.
+  
+9. Business Rules
+   
+   - BR-01: The doctor assignment must be automatic based on availability and workload.
+   - BR-02: Appointment reservations must be atomic — either fully confirmed or not created.
+   - BR-03: Notifications must be sent upon successful reservation.
+   - BR-04: The system must maintain low-latency behavior even under high load.
+   - BR-05: The system must prevent race conditions when two users select the same slot.
+   

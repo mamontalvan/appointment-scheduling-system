@@ -38,10 +38,49 @@ Actors:
 ### Use Case 1: Request Appointment
 1. Actors: Patient (primary actor)
 2. Brief Description: The patient initiates a request to schedule an appointment without selecting a specific doctor. The system registers the appointment request and will later proceed with doctor assignment and time reservation.
-3. Preconditions:
+   
+4. Preconditions:
    - The patient must be registered and authenticated.
    - The system must have available appointment slots.
    - At least one doctor must have a defined availability schedule.
+     
 5. Postconditions:
-6. 
+   - The appointment is successfully scheduled.
+   - A doctor is assigned to the appointment.
+   - A confirmation notification is sent to the patient.
+     
+6. Main Flow
+   - The patient selects an available appointment slot.
+   - The system validates that the selected slot is still available.
+   - The system automatically assigns a doctor based on availability and load.
+   - The system creates an Appointment record with status Confirmed.
+   - The system sends a confirmation email or in-app notification to the patient.
+   - The system updates the doctor's schedule with the new appointment.
+   - The use case ends successfully.
+     
+7. Alternative Flows
+   A1 – Slot No Longer Available
+     1. The system detects that the selected slot has been taken.
+     2. The system displays a message: “This time slot is no longer available.”
+     3. The system refreshes the list of available slots.
+     4. The patient may select a new slot.
+     5. The flow returns to Step 1 of the main flow.
 
+  A2 – No Doctor Available for the Selected Slot
+    1. The system cannot find an available doctor for the chosen slot.
+    2. The system displays a message: “No doctors are available for this slot.”
+    3. The system refreshes availability or suggests alternative times.
+    4. The patient may choose a new slot.
+
+  A3 – System Failure During Scheduling
+    1. A technical issue prevents the system from confirming the appointment.
+    2. The system displays an error message and logs the incident.
+    3. The system may retry the operation automatically (depending on architecture).
+    4. If retry fails, the patient is prompted to try again later.
+  
+8. Business Rules
+   BR-01: The doctor assignment must be automatic based on availability and workload.
+   BR-02: Appointment reservations must be atomic — either fully confirmed or not created.
+   BR-03: Notifications must be sent upon successful reservation.
+   BR-04: The system must maintain low-latency behavior even under high load.
+   BR-05: The system must prevent race conditions when two users select the same slot.

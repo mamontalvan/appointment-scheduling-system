@@ -22,17 +22,17 @@ flowchart TD
 ### 2. Sequence Diagram – View Available Times
 
 ```mermaid
-sequenceDiagram
-    participant P as Patient
-    participant UI as Web/App UI
-    participant SE as SchedulingEngine
-    participant DB as Database
-
-    P->>UI: View available times
-    UI->>SE: getAvailableSlots()
-    SE->>DB: query Availability where isAvailable = true
-    DB-->>SE: list of available slots
-    SE-->>UI: return available times
-    UI-->>P: Show available time slots
+flowchart TD
+        A[Start] --> B[Patient selects "View Available Times"]
+        B --> C[System retrieves all available time slots]
+        C --> D{Slots available?}
+        D -->|Yes| E[Display available slots]
+        E --> F[End]
+        
+        D -->|No| G[Show message: "No available slots"]
+        G --> F
+        
+        D -->|System Error| H[Show error message]
+        H --> F
 
 ```

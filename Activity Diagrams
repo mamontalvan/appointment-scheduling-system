@@ -1,4 +1,10 @@
-```marmaid
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
 
 flowchart TD
         A(["Start"])
@@ -15,4 +21,4 @@ flowchart TD
         E -->|System Error| J[Show error message]
         J --> G[End]
 
-```
+

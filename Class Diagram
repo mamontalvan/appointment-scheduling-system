@@ -1,5 +1,7 @@
 ## Class Diagram
 
+```mermaid
+
 classDiagram
     %% ========================
     %% Main Entities
@@ -99,3 +101,6 @@ classDiagram
     NotificationService --> Notification : sends >
     FaultToleranceManager --> SchedulingEngine : supports >
     FaultToleranceManager --> NotificationService : supports >
+
+
+```

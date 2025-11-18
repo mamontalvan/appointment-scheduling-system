@@ -84,3 +84,27 @@ K --> L[Retry or notify patient]
 L --> I
 
 ```
+
+### 5. Automatically Assign Doctor (versión final)
+
+```mermaid
+
+flowchart TD
+A[Start] --> B[System receives appointment slot]
+B --> C[Retrieve doctors available at that time]
+C --> D{Any available doctors?}
+
+D -->|Yes| E[Evaluate doctors: workload, availability, rules]
+E --> F[Select best doctor]
+F --> G[Assign doctor to appointment]
+G --> H[Update doctor schedule]
+H --> I[End]
+
+D -->|No| J[Notify: 'No doctors available']
+J --> I
+
+D -->|System Error| K[Log error]
+K --> L[Retry or notify patient]
+L --> I
+
+```

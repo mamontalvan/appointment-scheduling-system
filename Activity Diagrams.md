@@ -85,7 +85,7 @@ L --> I
 
 ```
 
-### 6. Send Appointment Notifications
+### 5. Send Appointment Notifications
 
 ```mermaid
 
@@ -109,7 +109,7 @@ K --> H
 
 ```
 
-### 7. Admin Manage Appointments
+### 6. Admin Manage Appointments
 
 ```mermaid
 

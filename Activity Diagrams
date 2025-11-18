@@ -1,3 +1,5 @@
+```marmaid
+
 flowchart TD
         A(["Start"])
         A --> B["Patient selects 'Request Appointmen'"]
@@ -12,3 +14,5 @@ flowchart TD
             I --> G[End]
         E -->|System Error| J[Show error message]
         J --> G[End]
+
+```

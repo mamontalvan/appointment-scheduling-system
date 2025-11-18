@@ -40,6 +40,7 @@ H --> F
 ### 3. Reserve Appointment Slot
 
 ```mermaid
+
 flowchart TD
 A[Start] --> B[Patient selects a time slot]
 B --> C[System validates slot availability]

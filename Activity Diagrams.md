@@ -59,5 +59,28 @@ K --> I
 D -->|System Error| L[Show technical error]
 L --> I
 
+```
+
+### 4. Automatically Assign Doctor
+
+```mermaid
+
+flowchart TD
+A[Start] --> B[System receives selected time slot]
+B --> C[Retrieve available doctors for the slot]
+C --> D{Any doctors available?}
+
+D -->|Yes| E[Evaluate doctors: workload, availability]
+E --> F[Select best doctor]
+F --> G[Assign doctor to appointment]
+G --> H[Update appointment record]
+H --> I[End]
+
+D -->|No| J[Notify: 'No doctors available for this slot']
+J --> I
+
+D -->|System Error| K[Log error]
+K --> L[Retry or notify patient]
+L --> I
 
 ```

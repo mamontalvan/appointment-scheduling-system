@@ -391,3 +391,6 @@ Actors:
    - BR-02: All manual changes must trigger new notifications.
    - BR-03: All modifications must be recorded for auditing.
    
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/faa10caf-77da-4269-a6c9-5915f4f75be4" />
+
+

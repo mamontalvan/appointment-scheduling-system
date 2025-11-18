@@ -23,16 +23,16 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-        A[Start] --> B[Patient selects "View Available Times"]
-        B --> C[System retrieves all available time slots]
-        C --> D{Slots available?}
-        D -->|Yes| E[Display available slots]
-        E --> F[End]
-        
-        D -->|No| G[Show message: "No available slots"]
-        G --> F
-        
-        D -->|System Error| H[Show error message]
-        H --> F
+A[Start] --> B["Patient selects 'View Available Times'"]
+B --> C[System retrieves all available time slots]
+C --> D{Slots available?}
+D -->|Yes| E[Display available slots]
+E --> F[End]
+
+D -->|No| G[Show message: 'No available slots']
+G --> F
+
+D -->|System Error| H[Show error message]
+H --> F
 
 ```

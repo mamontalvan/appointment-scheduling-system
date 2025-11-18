@@ -46,16 +46,17 @@ B --> C[System validates slot availability]
 C --> D{Slot still available?}
 
 D -->|Yes| E[Trigger automatic doctor assignment]
-E --> F[System creates Appointment (Confirmed)]
+E --> F[System creates Appointment <<Confirmed>>]
 F --> G[Send confirmation to patient]
 G --> H[Update doctor's schedule]
 H --> I[End]
 
-D -->|No| J[Show message: "Slot no longer available"]
+D -->|No| J[Show message: 'Slot no longer available']
 J --> K[Refresh available slots]
 K --> I
 
 D -->|System Error| L[Show technical error]
 L --> I
+
 
 ```

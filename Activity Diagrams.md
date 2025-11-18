@@ -85,26 +85,66 @@ L --> I
 
 ```
 
-### 5. Automatically Assign Doctor (versión final)
+### 6. Send Appointment Notifications
 
 ```mermaid
 
 flowchart TD
-A[Start] --> B[System receives appointment slot]
-B --> C[Retrieve doctors available at that time]
-C --> D{Any available doctors?}
+A[Start] --> B[Appointment is created or updated]
+B --> C[System prepares notification content]
+C --> D[Determine delivery channels: Email, SMS, App]
+D --> E[Send notification]
 
-D -->|Yes| E[Evaluate doctors: workload, availability, rules]
-E --> F[Select best doctor]
-F --> G[Assign doctor to appointment]
-G --> H[Update doctor schedule]
-H --> I[End]
+E --> F{Notification sent successfully?}
 
-D -->|No| J[Notify: 'No doctors available']
-J --> I
+F -->|Yes| G[Log notification in system]
+G --> H[End]
 
-D -->|System Error| K[Log error]
-K --> L[Retry or notify patient]
-L --> I
+F -->|No| I[Log failure]
+I --> J[Retry sending?]
+
+J -->|Yes| E
+J -->|No| K[Mark as Failed and alert admin]
+K --> H
+
+```
+
+### 7. Admin Manage Appointments
+
+```mermaid
+
+flowchart TD
+A[Start] --> B[Admin opens Appointment Management panel]
+B --> C[System displays list of appointments]
+C --> D[Admin selects an appointment]
+
+D --> E{Select action: Edit / Cancel / Reassign?}
+
+E -->|Edit| F[Admin edits appointment details]
+F --> G[System validates changes]
+G --> H{Valid?}
+H -->|Yes| I[Update appointment]
+I --> X[Notify patient & doctor]
+X --> Z[Log changes]
+Z --> AA[End]
+
+H -->|No| AB[Show validation error]
+AB --> D
+
+E -->|Cancel| AC[Admin cancels appointment]
+AC --> AD[System confirms cancellation]
+AD --> X
+
+E -->|Reassign| AE[Admin selects new doctor]
+AE --> AF[System checks doctor availability]
+AF --> AG{Doctor available?}
+
+AG -->|Yes| AH[Assign new doctor]
+AH --> X
+
+AG -->|No| AI[Show error: doctor unavailable]
+AI --> D
+
+E -->|None| AA
 
 ```

@@ -1,4 +1,4 @@
-### Activity Diagram 1: Request Appointment
+### 1. Activity Diagram 1: Request Appointment
 
 ```mermaid
 flowchart TD
@@ -16,5 +16,23 @@ flowchart TD
         E -->|System Error| J[Show error message]
         J --> G[End]
 
+
+```
+
+### 2. Sequence Diagram – View Available Times
+
+```mermaid
+sequenceDiagram
+    participant P as Patient
+    participant UI as Web/App UI
+    participant SE as SchedulingEngine
+    participant DB as Database
+
+    P->>UI: View available times
+    UI->>SE: getAvailableSlots()
+    SE->>DB: query Availability where isAvailable = true
+    DB-->>SE: list of available slots
+    SE-->>UI: return available times
+    UI-->>P: Show available time slots
 
 ```

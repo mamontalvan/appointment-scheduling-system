@@ -1,6 +1,6 @@
+### Activity Diagram 1: Request Appointment
+
 ```mermaid
-
-
 flowchart TD
         A(["Start"])
         A --> B["Patient selects 'Request Appointmen'"]
